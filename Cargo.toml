@@ -6,9 +6,9 @@ categories = ["web-programming::http-client", ""]
 keywords = ["reqwest", "debug", "json"]
 license = "Apache-2.0 OR MIT"
 readme = "README.md"
-repository = ""
+repository = "https://github.com/DevNulPavel/reqwest_inspect_json"
 edition = "2018"
-description = "https://github.com/DevNulPavel/reqwest_inspect_json"
+description = "Reqwest extention for json response tracing"
 
 [features]
 default = []
