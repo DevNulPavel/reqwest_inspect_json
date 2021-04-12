@@ -5,7 +5,7 @@ Can be usefull for response json-tracing purposes.
 
 Example:
 
-```
+```rust
 use reqwest_inspect_json::InspectJson;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
@@ -32,7 +32,7 @@ let response = client
     .await
     .expect("Request failed")
     .inspect_json::<Response, DebugError>(move |text| {
-        // println!("Json content: {}", text);
+        println!("Json content: {}", text);
         let text_data = serde_json::from_str::<Response>(text).expect("Parsing failed");
         assert_eq!(text_data.json, test_data_copy);
     })
