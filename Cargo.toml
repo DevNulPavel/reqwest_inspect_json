@@ -1,6 +1,6 @@
 [package]
 name = "reqwest_inspect_json"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["DevNul <devnulpavel@gmail.com>"]
 categories = ["web-programming::http-client"]
 keywords = ["reqwest", "debug", "json"]

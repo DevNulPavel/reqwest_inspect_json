@@ -1,10 +1,19 @@
 # reqwest-debug-json
 
 Provides `inspect_json` method for reqwest's response object.
+The method is replacement for standart `json` method.
+
 Can be usefull for response json-tracing purposes.
 
-Example:
+`ErrorType` must implement both `From<reqwest::Error>` + `From<serde_json::Error>`
 
+```
+    .inspect_json::<ResponseStruct, ErrorType>(move |text| {
+        debug!("Json data: {}", text);
+    })
+```
+
+Extended example:
 ```rust
 use reqwest_inspect_json::InspectJson;
 
@@ -13,6 +22,7 @@ struct TestDataClass {
     key1: String,
     key2: String,
 }
+
 #[derive(Serialize, Deserialize, Debug)]
 struct Response {
     json: TestDataClass,
