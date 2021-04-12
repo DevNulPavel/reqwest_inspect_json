@@ -1,28 +1,28 @@
 use async_trait::async_trait;
 use serde::Deserialize;
 
-#[async_trait(?Send)]
+#[async_trait]
 pub trait InspectJson<C> 
 where
-    C: FnOnce(&str) + 'static
+    C: FnOnce(&str) + Send + 'static
 {
     async fn inspect_json<T, E>(self, callback: C) -> Result<T, E>
     where
         T: for<'de> Deserialize<'de>,
-        E: From<reqwest::Error> + 'static,
-        E: From<serde_json::Error> + 'static;
+        E: From<reqwest::Error>,
+        E: From<serde_json::Error>;
 }
 
-#[async_trait(?Send)]
+#[async_trait]
 impl<C> InspectJson<C> for reqwest::Response
 where
-    C: FnOnce(&str) + 'static
+    C: FnOnce(&str) + Send + 'static
 {
     async fn inspect_json<T, E>(self, callback: C) -> Result<T, E>
     where
         T: for<'de> Deserialize<'de>,
-        E: From<reqwest::Error> + 'static,
-        E: From<serde_json::Error> + 'static        
+        E: From<reqwest::Error>,
+        E: From<serde_json::Error>
     {
         let full = self
             .text()
