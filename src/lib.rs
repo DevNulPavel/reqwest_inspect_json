@@ -2,7 +2,7 @@ use async_trait::async_trait;
 use serde::Deserialize;
 
 #[async_trait(?Send)]
-pub trait DebugJson<C> 
+pub trait InspectJson<C> 
 where
     C: FnOnce(&str) + 'static
 {
@@ -14,7 +14,7 @@ where
 }
 
 #[async_trait(?Send)]
-impl<C> DebugJson<C> for reqwest::Response
+impl<C> InspectJson<C> for reqwest::Response
 where
     C: FnOnce(&str) + 'static
 {

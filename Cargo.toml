@@ -8,7 +8,7 @@ license = "Apache-2.0 OR MIT"
 readme = "README.md"
 repository = ""
 edition = "2018"
-description = "Additional inspect method for reqwest"
+description = "https://github.com/DevNulPavel/reqwest_inspect_json"
 
 [features]
 default = []
