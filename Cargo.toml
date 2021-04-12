@@ -1,0 +1,25 @@
+[package]
+name = "reqwest_inspect_json"
+version = "0.0.1"
+authors = ["DevNul <devnulpavel@gmail.com>"]
+categories = ["web-programming::http-client", ""]
+keywords = ["reqwest", "debug", "json"]
+license = "Apache-2.0 OR MIT"
+readme = "README.md"
+repository = ""
+edition = "2018"
+description = "Additional inspect method for reqwest"
+
+[features]
+default = []
+blocking = ["reqwest/blocking"]
+
+[dependencies]
+reqwest = { version = "^0.10.10", features = ["json"] }
+serde = "^1.0.118"
+serde_json = "^1.0.61"
+async-trait = "^0.1.42"
+
+[dev-dependencies]
+tokio = { version = "0.2.24", default-features = false, features = ["macros"] }
+serde = {version = "1.0.118", features = ["derive"]}
