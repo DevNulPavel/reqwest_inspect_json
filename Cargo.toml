@@ -1,11 +1,11 @@
 [package]
 name = "reqwest_inspect_json"
-version = "0.0.8"
+version = "0.1.0"
 authors = ["DevNul <devnulpavel@gmail.com>"]
 categories = ["web-programming::http-client"]
 keywords = ["reqwest", "debug", "json"]
 license = "Apache-2.0 OR MIT"
-edition = "2018"
+edition = "2021"
 readme = "README.md"
 repository = "https://github.com/DevNulPavel/reqwest_inspect_json"
 documentation = "https://docs.rs/crate/reqwest_inspect_json/"
@@ -22,6 +22,6 @@ serde_json = "~1"
 async-trait = "~0.1"
 
 [dev-dependencies]
-reqwest = { version = "0.10.0", default-features = false, features = ["json"] }
-tokio = { version = "0.2.24", default-features = false, features = ["macros"] }
+reqwest = { version = "<0.12.0, >=0.10.0", default-features = false, features = ["json"] }
+tokio = { version = "1", default-features = false, features = ["macros"] }
 serde = {version = "~1", features = ["derive"]}
